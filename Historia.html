@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Historia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "Historia.css">
+    <script src="Historia.js"></script>
+</head>
+<body class = "no-select">
+    <div id="header">∞│<bankName>Infinite Bank</bankName></div>
+    <div id = "zakladka">
+        <div id = "strona-glowna-przycisk-header" class = "zakladka-active-main">HISTORIA</div>
+        <div id = "historia-transakcji-przycisk-header" class = "zakladka-main">HOME</div>
+    </div>
+
+    <h1 id="header2">Historia Wydatków</h1>
+    <center>
+    <div id="main-container">
+        <div id = "tabela-transakcji">
+            <div class = "data pojemnik-transakcji">Data</div>
+            <div class = "nazwa pojemnik-transakcji">Nazwa</div>
+            <div class = "kategoria pojemnik-transakcji">Kategoria</div>
+            <div class = "kwota pojemnik-transakcji">Kwota</div>
+        </div>
+            <div id = "lista-transakcji"></div>
+    </div>
+  
+<div id="filter-container">
+    <label for="kwota-operator">Filtruj po kwocie:</label>
+    <select id="kwota-operator">
+        <option value=">">Większe niż</option>
+        <option value="<">Mniejsze niż</option>
+        <option value="=">Równe</option>
+    </select>
+    <input type="number" id="kwota-value" placeholder="Wartość kwoty">
+
+ 
+
+    <label for="kategoria-select">Filtruj po kategorii:</label>
+    <select name="Filtruj po kategorii" id="kategoria-select">
+        <option value="">Wszystkie</option>
+        <option value="Zakupy przez internet">Zakupy przez internet</option>
+        <option value="Transport">Transport</option>
+        <option value="Odzież">Odzież</option>
+        <option value="Obuwie">Obuwie</option>
+        <option value="Urządzenia elektroniczne">Urządzenia elektroniczne</option>
+        <option value="Artykuły kosmetyczne">Artykuły kosmetyczne</option>
+        <option value="Przelew wewnętrzny">Przelew wewnętrzny</option>
+        <option value="Inne">Inne</option>
+        <option value="Artykuły spożywcze">Artykuły spożywcze</option>
+    </select>
+    
+    <label for="nazwa-select">Filtruj po Nazwie Odbiorcy/Wysyłającego:</label>
+<select id="nazwa-select" name="Filtruj po nazwie">
+    <option value="">Wszystkie</option>
+    <option value="Steam">Steam</option>
+    <option value="Lidl">Lidl</option>
+    <option value="Biedronka">Biedronka</option>
+    <option value="Rossmann">Rossmann</option>
+    <option value="Orlen">Orlen</option>
+    <option value="BP">BP</option>
+    <option value="Shell">Shell</option>
+    <option value="Reserved">Reserved</option>
+    <option value="H&M">H&M</option>
+    <option value="CCC">CCC</option>
+    <option value="MediaMarkt">MediaMarkt</option>
+    <option value="RTV Euro AGD">RTV Euro AGD</option>
+    <option value="Hebe">Hebe</option>
+    <option value="Kaufland">Kaufland</option>
+    <option value="Carrefour">Carrefour</option>
+    <option value="Epic Games Store">Epic Games Store</option>
+    <option value="Ubisoft Connect">Ubisoft Connect</option>
+    <option value="BattleNet">BattleNet</option>
+    <option value="Babcia">Babcia</option>
+    <option value="Mama">Mama</option>
+    <option value="Tata">Tata</option>
+    <option value="Pracodawca">Pracodawca</option>
+</select>
+
+<label>Filtruj po dacie:</label>
+<select id="mniejsze-wieksze-rowne">
+    <option value=">">Późniejsze niż</option>
+    <option value="<">Wcześniejsze niż</option>
+    <option value="=">Równe</option>
+</select>
+<input type="date" id="data1">
+
+
+
+
+    
+    <button onclick="filtrujTransakcje()">Filtruj</button>
+</div>
+
+    </center>
+    <script>
+        let saldo = 5000;
+        let transakcje = [];
+        let sortowanie = ['data', 'malejaco', 0];
+        wygenerujTransakcje(100, 'losowo');
+        wyswietlTransakcje(transakcje);
+
+        const tabela = document.getElementById('tabela-transakcji');
+        for(const div of tabela.children){
+            sortujPoKliknieciu(div);
+        }
+
+        document.getElementById("historia-transakcji-przycisk-header").onclick = function() {
+    window.open("index.html", "_self"); 
+};
+
+document.getElementById("strona-glowna-przycisk-header ").onclick = function() {
+    window.open("Historia.html", "_self"); 
+};
+
+    </script>
+</body>
+</html>
